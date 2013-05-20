@@ -4,11 +4,11 @@ exports.settings =
 
 exports.compile = (file, callback) ->
   error = false
+  compiled_contents = null
 
   try
-    compiled_contents = file.contents
+    compiled_contents = file.contents.replace('world', 'coil')
   catch err
     error = err
 
-  file.write(compiled_contents) unless error
-  callback(error, file)
+  callback(error, compiled_contents)
